@@ -31,6 +31,23 @@ int* selectionSort(int array[]){
     return array;
 }
 
+int* bubbleSort(int array[]){
+    int aux;
+    bool sorted = false;
+    while(!sorted){
+        sorted = true;
+        for(int i = 0; i < n-1; i++){
+            if(array[i]>array[i+1]){
+                aux = array[i];
+                array[i] = array[i+1];
+                array[i+1] = aux;
+                sorted = false;
+            }
+        }
+    }
+    return array;
+}
+
 void displayArray(int array[]){
     for(int i = 0; i < n; i++){
         cout<<array[i]<<",";
@@ -43,5 +60,7 @@ int main(int, char*[]){
     displayArray(insertArray);
     int* selectArray = selectionSort(sampleArray);
     displayArray(selectArray);
+    int* bubbleArray = bubbleSort(sampleArray);
+    displayArray(bubbleArray);
     return 1;
 }
